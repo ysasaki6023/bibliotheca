@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os,sys
 import urllib.request
 import expandBib
@@ -23,4 +24,3 @@ class base(object):
             obj.close()
     # これ参考にロバストに:
     #https://github.com/fchollet/keras/blob/master/keras/utils/data_utils.py
-
