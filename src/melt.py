@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-import os,sys
-# ここは、将来的に暗号化する必要がある
-def melt(bit):
-    pass
-
+def melt(data):
+    iv = "bibriotheca/melt.py"
+    allKey = "Not implemented yet:"+str(time.time()/2.+10.)
+    key,parity = allKey.split(":")
+    return get_decrypt_data(data,key,iv)
