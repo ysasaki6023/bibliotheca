@@ -1,7 +1,7 @@
 FROM nvidia/cuda:7.5-cudnn5-devel
 
-RUN apt-get update -y \
-&& DEBIAN_FRONTEND=noninteractive apt-get install -y -q \
+RUN apt-get update -y && \
+    apt-get install -y -q \
     git \
     python3-dev \
     python3-pip \
@@ -34,10 +34,13 @@ RUN apt-get update -y \
     libavformat-dev \
     libavresample-dev \
     qt5-default \
-    ffmpeg \
     vim \
     wget && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+
+RUN wget http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz \
+      && tar Jxvf ./ffmpeg-release-64bit-static.tar.xz \
+      && cp ./ffmpeg*64bit-static/ffmpeg /usr/local/bin/
 
 RUN git clone --depth 100 https://github.com/opencv/opencv.git \
     && cd opencv \
@@ -80,7 +83,9 @@ RUN pip3 install --upgrade pip3 && \
     jupyter==1.0.0 \
     keras==2.0.6 \
     imgaug==0.2.5 \
+    matplotlib \
     h5py
+
 
 
 WORKDIR /dev
